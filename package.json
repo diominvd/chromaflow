@@ -1,0 +1,30 @@
+{
+  "name": "@diominvd/chromaflow",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./dist/chromaflow.js",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "diominvd",
+  "license": "MIT",
+  "description": "DESCRIPTION",
+  "keywords": [
+    "css",
+    "variables",
+    "dynamic",
+    "theme",
+    "colors"
+  ],
+  "devDependencies": {
+    "@types/node": "^22.15.18",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vite-plugin-dts": "^4.5.3"
+  }
+}
