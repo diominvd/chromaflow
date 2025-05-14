@@ -50,7 +50,7 @@ export class Palette {
     return element.shades[shade]!;
   }
 
-  generateCssVariables(): string {
+  private generateCssVariables(): string {
     const cssVariables: string[] = [];
     
     Object.entries(this.elements).forEach(([name, element]) => {

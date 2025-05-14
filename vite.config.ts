@@ -22,7 +22,7 @@ export default defineConfig({
       entry: resolve(__dirname, 'lib/index.ts'),
       name: 'chromaflow',
       formats: ['es'],
-      fileName: () => `chromaflow.js`
+      fileName: () => `index.js`
     },
     sourcemap: true,
     minify: true,
