@@ -12,11 +12,20 @@
   "publishConfig": {
     "access": "public"
   },
-  "keywords": ["css", "variables", "dynamic", "theme", "colors", "typescript"],
+  "keywords": [
+    "css",
+    "variables",
+    "dynamic",
+    "theme",
+    "colors",
+    "typescript"
+  ],
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -30,9 +39,13 @@
     "@types/node": "^22.15.18",
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.1.5",
+    "lucide-react": "^0.511.0",
+    "sass": "^1.89.0",
+    "sass-embedded": "^1.89.0",
     "typescript": "^5.8.3",
     "vite": "^6.3.5",
-    "vite-plugin-dts": "^4.5.3"
+    "vite-plugin-dts": "^4.5.3",
+    "vite-plugin-lib-inject-css": "^2.2.2"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

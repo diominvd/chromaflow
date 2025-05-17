@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./public/logo.png" width="60px" />
+  <img src="./lib/assets/logo.png" width="60px" />
   <h1 align="center">Chromaflow</h1>
   <div align="center">
     <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/diominvd/chromaflow">

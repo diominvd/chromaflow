@@ -3,11 +3,11 @@ import { generateShades } from '@/utils';
 
 export class Palette {
   private readonly STORAGE_KEY: string = 'chromaflow';
-  private elements: ColorPalette;
+  private elements: ColorPalette = {};
   private styleElement: HTMLStyleElement | null = null;
 
   constructor(elements: ColorPalette = {}) {
-    this.elements = this.loadFromCache() || elements;
+    this.elements = this.loadFromCache() || { ...elements  };
     this.processElements();
     this.updateCssVariables();
   }
@@ -33,9 +33,11 @@ export class Palette {
 
   private loadFromCache(): ColorPalette | null {
     try {
+      if (!this.STORAGE_KEY) throw new Error('Storage key not defined');
       const cached = localStorage.getItem(this.STORAGE_KEY);
       return cached ? JSON.parse(cached) : null;
-    } catch {
+    } catch (error) {
+      console.error('Cache load failed:', error);
       return null;
     }
   }
@@ -55,7 +57,7 @@ export class Palette {
 
   removeElement(name: string) {
     if (!this.elements[name]) {
-      throw new Error(`Element ${name} not founded`);
+      throw new Error(`Element ${name} not found`);
     }
     delete this.elements[name];
     this.updateCssVariables();
@@ -65,7 +67,7 @@ export class Palette {
   
   getElement(name: string) {
     if (!this.elements[name]) {
-      throw new Error(`Element ${name} not founded`);
+      throw new Error(`Element ${name} not found`);
     }
     return this.elements[name];
   }
@@ -101,11 +103,26 @@ export class Palette {
     return `:root {\n ${cssVariables.join('\n ')}\n}`;;
   }
 
-  public updateCssVariables() {
-    if (!this.styleElement) {
-      this.styleElement = document.createElement('style');
-      document.head.append(this.styleElement);
+  getCssVariable(name: string, shade?: number) {
+    const element = this.getElement(name);
+  
+    if (shade !== undefined) {
+      if (!element.shades || !element.shades[shade]) {
+        throw new Error(`Shade ${shade} not found for element ${name}`);
+      }
+      return `var(--${name}-${shade})`;
     }
+  
+    return `var(--${name})`;
+  }
+
+  public updateCssVariables() {
+    if (this.styleElement) {
+      this.styleElement.remove();
+    }
+
+    this.styleElement = document.createElement('style');
     this.styleElement.textContent = this.generateCssVariables();
+    document.head.append(this.styleElement);
   }
 }

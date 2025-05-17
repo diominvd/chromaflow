@@ -1,1 +1,2 @@
-export * from './PaletteContext.tsx';
+export * from './widgets';
+export * from './context';

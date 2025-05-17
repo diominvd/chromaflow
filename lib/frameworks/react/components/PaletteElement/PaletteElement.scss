@@ -1,0 +1,22 @@
+div.palette-element {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  margin: 8px;
+  padding: 16px;
+
+  border-radius: 16px;
+
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+  }
+
+  span {
+    font-size: 20px;
+    font-weight: 500;
+  }
+}

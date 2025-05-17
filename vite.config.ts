@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
+import { libInjectCss } from 'vite-plugin-lib-inject-css';
 import dts from 'vite-plugin-dts';
 
 export default defineConfig({
@@ -10,13 +11,9 @@ export default defineConfig({
       exclude: ['node_modules/**', 'dist/**'],
       outDir: 'dist/types',
       rollupTypes: true
-    })
+    }),
+    libInjectCss(),
   ],
-  resolve: {
-    alias: {
-      '@': resolve(__dirname, './lib')
-    }
-  },
   build: {
     lib: {
       entry: resolve(__dirname, 'lib/index.ts'),
@@ -32,8 +29,15 @@ export default defineConfig({
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM'
-        }
+        },
+        assetFileNames: 'index.css'
       }
     }
-  }
+  },
+  publicDir: 'lib/public',
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, './lib'),
+    }
+  },
 });

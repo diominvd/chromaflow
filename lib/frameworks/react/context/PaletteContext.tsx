@@ -3,7 +3,6 @@ import React, { createContext, useContext, useState } from 'react';
 import { Palette } from '@/classes';
 import { ColorPalette } from '@/types';
 
-
 export interface PaletteProviderProps {
   colors: ColorPalette;
   children: React.ReactNode;
