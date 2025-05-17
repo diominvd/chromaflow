@@ -2,30 +2,21 @@
   "name": "@diominvd/chromaflow",
   "version": "1.0.0",
   "description": "A lightweight and simple package for dynamically managing CSS variables in a project.",
+  "author": "diominvd",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/diominvd/chromaflow"
   },
-  "keywords": [
-    "css",
-    "variables",
-    "dynamic",
-    "theme",
-    "colors",
-    "typescript"
-  ],
-  "author": "diominvd",
-  "license": "MIT",
   "private": false,
   "publishConfig": {
     "access": "public"
   },
+  "keywords": ["css", "variables", "dynamic", "theme", "colors", "typescript"],
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -37,8 +28,22 @@
   },
   "devDependencies": {
     "@types/node": "^22.15.18",
+    "@types/react": "^19.1.4",
+    "@types/react-dom": "^19.1.5",
     "typescript": "^5.8.3",
     "vite": "^6.3.5",
     "vite-plugin-dts": "^4.5.3"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
   }
 }

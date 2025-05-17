@@ -27,7 +27,13 @@ export default defineConfig({
     sourcemap: true,
     minify: true,
     rollupOptions: {
-      external: []
+      external: ['react', 'react-dom'],
+      output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM'
+        }
+      }
     }
   }
 });
