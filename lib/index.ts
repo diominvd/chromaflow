@@ -1,3 +1,3 @@
-export * from './types/colors';
-export * from './types/palette';
-export * from './classes/palette';
+export * from './classes';
+export * from './frameworks';
+export * from './types';
