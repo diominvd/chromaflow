@@ -1,6 +1,6 @@
 {
   "name": "@diominvd/chromaflow",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A lightweight and simple package for dynamically managing CSS variables in a project.",
   "author": "diominvd",
   "license": "MIT",

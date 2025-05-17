@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./lib/assets/logo.png" width="60px" />
+  <img src="public/logo.png" width="60px" />
   <h1 align="center">Chromaflow</h1>
   <div align="center">
     <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/diominvd/chromaflow">
@@ -13,6 +13,10 @@ A library designed for dynamic management of CSS variables in projects written i
 1. [Installation](#installation)
 2. [Usage](#usage)
 3. [Supported methods](#supported-methods)
+4. [React](#react)
+   - [PaletteProvider](#palette-provider)
+   - [usePalette](#use-palette)
+   - [PaletteTools](#palette-tools)
 
 <h2 id="installation">1. Installation</h2>
 
@@ -52,10 +56,6 @@ const MyColorPalette = new Palette({
   }
 })
 ```
-After creating the palette object, you must use the instance method to inject variables into the web page.
-```jsx
-MyColorPalette.injectCssVariables();
-```
 As a result of the creation of the palette object, the following colors will be created:
 ```CSS
 :root {
@@ -80,11 +80,7 @@ As you can see, when creating the gradation for the `wildRed` color, standard va
 
 <h2 id="supported-methods">3. Supported methods</h2>
 
-- `getElement` - allows you to get all the color information.
-```jsx
-const colorData = MyColorPalette.getElement("wildRed");
-```
-- `addElement` - allows you to add a new color to the palette after creating the palette.
+- `addElement` - allows you to add a new color to the palette after creating the palette
 ```jsx
 MyColorPalette.addElement("newColorName", {
   color: "#333333",
@@ -96,19 +92,94 @@ MyColorPalette.addElement("newColorName", {
   }
 });
 ```
-- `removeElement` - allows you to remove the color of their already existing palette.
+- `removeElement` - allows you to remove the color of their already existing palette
 ```jsx
 MyColorPalette.removeElement("wildRed");
 ```
-- `getAllElements` - allows you to get all the information about the current palette.
+- `getElement` - allows you to get all the color information
+```jsx
+const colorData = MyColorPalette.getElement("wildRed");
+```
+- `getAllElements` - allows you to get all the information about the current palette
 ```jsx
 console.log(MyColorPalette.getAllElements());
 ```
-- `getShade` - allows you to get a color for a specific shade.
+- `getShade` - allows you to get a color for a specific shade
 ```jsx
 const colorValue = MyColorPalette.getShade("lightGreen", 100);
 ```
-- `injectCssVariables` - performs an "injection" of created variables onto a web page.
+- `getCssVariable` - allow to get css variable by color in css format
 ```jsx
-MyColorPalette.injectCssVariables();
+MyColorPalette.getCssVariable("wildRed", 150); // var(--wildRed-150)
 ```
+
+<h2 id="react">4. React</h2>
+
+There are three key elements for using `chromaflow` in conjunction with React:
+- [PaletteProvider](#palette-provider)
+- [usePalette](#use-palette)
+- [PaletteTools](#palette-tools)
+
+<h3 id="palette-provider">1. PaletteProvider</h3>
+
+The `Palette Provider` is designed to make color palette management even more convenient compared to pure JavaScript. It allows you to access the palette and use its methods at any nesting level. To create a provider, you need to pass to the colors property an object of the type that we passed to create an instance through the class `const palette = new Palette({...})`. Also, storing the palette in the context allows you to dynamically manage the palette and make changes to it.
+```jsx
+import { PaletteProvider } from '@diominvd/chromaflow';
+
+export const App: React.FC = ({}) => {
+  return (
+    <PaletteProvider colors={{
+      ocean: {
+        color: '#1d63b3'
+      },
+    }}>
+      <Home />
+    </PaletteProvider>
+  )
+}
+```
+After the root component is wrapped in the provider, it becomes possible to work with the palette via the `usePalette` hook.
+
+<h3 id="use-palette">2. usePalette</h3>
+
+The usePalette hook allows you to get an instance of the palette and work through it with the available methods. Regardless of the nesting level of the component. 
+```jsx
+import { usePalette } from '@diominvd/chromaflow';
+
+export const Home: React.FC = () => {
+  const { palette } = usePalette();
+  const element = palette.getElement('oceanBlue');
+
+  return (
+    <Page id='home'>
+      <h1 style={{ color: element.color }}>This is headline</h1>
+    </Page>
+  );
+}
+
+```
+The main thing is that the component in which the hook is called should be wrapped in a PaletteProvider.
+
+<h3 id="palette-tools">3. PaletteTools</h3>
+
+`PaletteTools` is a full-fledged component that allows you to visually track all changes in the palette. To use it, simply place `<PaletteTools />` in any convenient location (preferably in the root component).
+```jsx
+import { PaletteProvider, PaletteTools } from '@diominvd/chromaflow';
+
+export const App: React.FC = ({}) => {
+  return (
+    <PaletteProvider colors={{
+      ocean: {
+        color: '#1d63b3'
+      },
+    }}>
+      <Home />
+      <PaletteTools />
+    </PaletteProvider>
+  )
+}
+```
+
+License
+---
+Chromaflow is licensed under the MIT License.

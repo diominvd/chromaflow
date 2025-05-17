@@ -42,7 +42,7 @@ export class Palette {
     }
   }
 
-  removeCache() {
+  private removeCache() {
     localStorage.removeItem(this.STORAGE_KEY);
   }
 
@@ -63,7 +63,6 @@ export class Palette {
     this.updateCssVariables();
     this.saveToCache();
   }
-
   
   getElement(name: string) {
     if (!this.elements[name]) {
@@ -116,7 +115,7 @@ export class Palette {
     return `var(--${name})`;
   }
 
-  public updateCssVariables() {
+  private updateCssVariables() {
     if (this.styleElement) {
       this.styleElement.remove();
     }
