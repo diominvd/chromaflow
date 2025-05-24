@@ -1,0 +1,40 @@
+name: Auto Pull Request
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'chore: update from ${{ github.ref_name }}'
+          title: '🔄 Auto PR: ${{ github.ref_name }}'
+          body: |
+            ## Changes
+            This PR was automatically created from branch `${{ github.ref_name }}`
+            
+            ### Commit Details
+            ${{ github.event.head_commit.message }}
+            
+            ### Changed Files
+            ${{ github.event.head_commit.modified }}
+            
+            ---
+            *This PR was automatically created by GitHub Actions*
+          branch: 'auto-pr/${{ github.ref_name }}'
+          base: main
+          labels: |
+            automated pr
+            needs review
+          delete-branch: true
+          draft: false 

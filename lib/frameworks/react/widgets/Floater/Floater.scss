@@ -1,0 +1,33 @@
+div.floater {
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto 8px auto;
+
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 12px 16px;
+
+  background-color: #1a1a1a;
+
+  border-radius: 8px;
+  border: 1px solid #616161;
+
+  div.floater__section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  div.floater__separator {
+    height: 24px;
+    width: 1px;
+    background-color: #616161;
+  }
+}
