@@ -4,11 +4,12 @@
   "description": "A lightweight and simple package for dynamically managing CSS variables in a project.",
   "author": "diominvd",
   "license": "MIT",
+  "private": false,
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/diominvd/chromaflow"
   },
-  "private": false,
   "publishConfig": {
     "access": "public"
   },
@@ -20,12 +21,9 @@
     "colors",
     "typescript"
   ],
-  "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -35,19 +33,6 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && vite build"
-  },
-  "devDependencies": {
-    "@types/node": "^22.15.18",
-    "@types/react": "^19.1.4",
-    "@types/react-dom": "^19.1.5",
-    "@vitejs/plugin-react": "^4.4.1",
-    "rimraf": "^6.0.1",
-    "sass-embedded": "^1.89.0",
-    "terser": "^5.39.2",
-    "typescript": "^5.8.3",
-    "vite": "^6.3.5",
-    "vite-plugin-dts": "^4.5.3",
-    "vite-plugin-lib-inject-css": "^2.2.2"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
@@ -60,5 +45,18 @@
     "react-dom": {
       "optional": true
     }
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "@types/node": "^22.15.18",
+    "@types/react": "^19.1.4",
+    "@types/react-dom": "^19.1.5",
+    "vite": "^6.3.5",
+    "@vitejs/plugin-react": "^4.4.1",
+    "vite-plugin-dts": "^4.5.3",
+    "vite-plugin-lib-inject-css": "^2.2.2",
+    "rimraf": "^6.0.1",
+    "sass-embedded": "^1.89.0",
+    "terser": "^5.39.2"
   }
 }
