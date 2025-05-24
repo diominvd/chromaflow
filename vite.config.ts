@@ -11,51 +11,40 @@ export default defineConfig({
       insertTypesEntry: true,
       include: ['lib/**/*'],
       exclude: ['node_modules/**', 'dist/**'],
-      outDir: 'dist/types',
-      rollupTypes: true
+      outDir: 'dist/types'
     }),
-    libInjectCss(),
+    libInjectCss()
   ],
   build: {
-    target: 'esnext',
-    cssCodeSplit: true,
-    reportCompressedSize: false,
-    chunkSizeWarningLimit: 1000,
-    sourcemap: false,
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-        pure_funcs: ['console.log', 'console.info', 'console.debug'],
-      },
-      format: {
-        comments: false,
-      },
-    },
     lib: {
       entry: resolve(__dirname, 'lib/index.ts'),
       name: 'chromaflow',
       formats: ['es'],
-      fileName: () => `index.js`
+      fileName: 'index'
     },
     rollupOptions: {
       external: ['react', 'react-dom', 'react/jsx-runtime'],
       output: {
-        minifyInternalExports: true,
-        compact: true,
+        assetFileNames: 'index.css',
         globals: {
-          'react': 'React',
+          react: 'React',
           'react-dom': 'ReactDOM'
-        },
-        assetFileNames: 'index.css'
+        }
       }
-    }
+    },
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    },
+    sourcemap: false
   },
   publicDir: 'lib/public',
   resolve: {
     alias: {
-      '@': resolve(__dirname, './lib'),
+      '@': resolve(__dirname, './lib')
     }
-  },
+  }
 });
