@@ -13,12 +13,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Improved file readability.
-- The TypeScript configuration is split into two files for more fine tuning.
-- Improved configuration for Vite assembly.
+- Split TypeScript config into separate files.
+- Improve Vite build settings.
+- Enhance file structure readability.
 
 ### Removed
 
-- The erroneous import in the "utils" directory that interferes with the build has been removed.
+- Remove faulty utils/ import (fixes build).
 
-[unreleased]: https://github.com/diominvd/chromaflow/compare/develop...HEAD
+[unreleased]: https://github.com/diominvd/chromaflow/compare/main...develop
