@@ -1,4 +1,4 @@
-import { HEXColor, HSLColor } from '@/types';
+import { HEXColor, HSLColor } from '@/types/types';
 
 export function hexToHsl(hex: HEXColor): HSLColor {
   const cleanHex = hex.startsWith('#') ? hex.slice(1) : hex;

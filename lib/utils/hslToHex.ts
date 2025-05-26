@@ -1,4 +1,4 @@
-import { HEXColor, HSLColor } from '@/types';
+import { HEXColor, HSLColor } from '@/types/types';
 
 export function hslToHex(hsl: HSLColor): HEXColor {
   const { h, s, l } = hsl;
