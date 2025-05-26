@@ -23,7 +23,9 @@
   ],
   "main": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -47,16 +49,18 @@
     }
   },
   "devDependencies": {
-    "typescript": "^5.8.3",
+    "@hugeicons/core-free-icons": "^1.0.14",
+    "@hugeicons/react": "^1.0.5",
     "@types/node": "^22.15.18",
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.1.5",
-    "vite": "^6.3.5",
     "@vitejs/plugin-react": "^4.4.1",
-    "vite-plugin-dts": "^4.5.3",
-    "vite-plugin-lib-inject-css": "^2.2.2",
     "rimraf": "^6.0.1",
     "sass-embedded": "^1.89.0",
-    "terser": "^5.39.2"
+    "terser": "^5.39.2",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vite-plugin-dts": "^4.5.3",
+    "vite-plugin-lib-inject-css": "^2.2.2"
   }
 }
