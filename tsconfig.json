@@ -12,7 +12,8 @@
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["lib/*"]
+      "@/*": ["lib/*"],
+      "@react/*": ["lib/frameworks/react/*"]
     },
 
     // Type Checking

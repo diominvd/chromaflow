@@ -1,0 +1,88 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss"
+  ],
+  "plugins": [
+    "stylelint-order"
+  ],
+  "rules": {
+    "selector-class-pattern": "^[a-z]+(?:-[a-z]+)*(?:__[a-z]+(?:-[a-z]+)*)?(?:--[a-z]+(?:-[a-z]+)*)?$",
+    "order/properties-order": [
+      {
+        "groupName": "Positioning",
+        "properties": [
+          "position",
+          "top",
+          "right",
+          "bottom",
+          "left",
+          "z-index"
+        ]
+      },
+      {
+        "groupName": "Box Model",
+        "properties": [
+          "display",
+          "flex",
+          "flex-direction",
+          "flex-wrap",
+          "align-items",
+          "justify-content",
+          "gap",
+          "width",
+          "height",
+          "margin",
+          "margin-top",
+          "margin-right",
+          "margin-bottom",
+          "margin-left",
+          "padding",
+          "padding-top",
+          "padding-right",
+          "padding-bottom",
+          "padding-left"
+        ]
+      },
+      {
+        "groupName": "Typography",
+        "properties": [
+          "color",
+          "font-size",
+          "font-weight",
+          "line-height",
+          "text-align",
+          "white-space",
+          "user-select"
+        ]
+      },
+      {
+        "groupName": "Visual",
+        "properties": [
+          "background",
+          "background-color",
+          "border",
+          "border-radius",
+          "box-shadow",
+          "opacity",
+          "overflow"
+        ]
+      },
+      {
+        "groupName": "Animation",
+        "properties": [
+          "transition",
+          "transform"
+        ]
+      },
+      {
+        "groupName": "Misc",
+        "properties": [
+          "cursor"
+        ]
+      }
+    ],
+    "scss/at-import-partial-extension": null,
+    "scss/dollar-variable-pattern": null,
+    "scss/selector-no-redundant-nesting-selector": null
+  }
+} 
