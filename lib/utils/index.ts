@@ -1,3 +1,4 @@
+export * from './copyToClipboard.ts';
 export * from './generateShades.ts';
 export * from './getContrast.ts';
 export * from './getLuminance.ts';
