@@ -44,7 +44,8 @@ export default defineConfig({
   publicDir: 'lib/public',
   resolve: {
     alias: {
-      '@': resolve(__dirname, './lib')
+      '@': resolve(__dirname, './lib'),
+      '@react': resolve(__dirname, './lib/frameworks/react')
     }
   }
 });
