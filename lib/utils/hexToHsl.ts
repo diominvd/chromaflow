@@ -1,11 +1,10 @@
 import { HEXColor, HSLColor } from '@/types';
-import { ColorError } from '@/errors';
 
 export function hexToHsl(hex: HEXColor): HSLColor {
   const cleanHex = hex.startsWith('#') ? hex.slice(1) : hex;
   
   if (!/^[0-9A-Fa-f]{3}$|^[0-9A-Fa-f]{6}$/.test(cleanHex)) {
-    throw new ColorError('Invalid HEX color format');
+    throw new Error('Invalid HEX color format');
   }
 
   const fullHex = cleanHex.length === 3 
