@@ -36,9 +36,10 @@
     "clean": "rimraf dist",
     "build": "npm run clean && vite build",
     "dev": "vite --config vite.config.ts",
-    "watch": "vite build --watch",
     "preview": "vite preview",
-    "test:dev": "vite --config vite.config.ts"
+    "stylelint": "stylelint \"lib/**/*.scss\" --fix --formatter verbose",
+    "test:dev": "vite --config vite.config.ts",
+    "watch": "vite build --watch"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
@@ -53,17 +54,21 @@
     }
   },
   "devDependencies": {
+    "typescript": "^5.8.3",
     "@types/node": "^22.15.18",
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.1.5",
+    "vite": "^6.3.5",
     "@vitejs/plugin-react": "^4.4.1",
+    "vite-plugin-dts": "^4.5.3",
+    "vite-plugin-lib-inject-css": "^2.2.2",
+    "sass-embedded": "^1.89.0",
+    "stylelint": "^16.19.1",
+    "stylelint-config-recess-order": "^4.3.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "stylelint-order": "^7.0.0",
     "lucide-react": "^0.511.0",
     "rimraf": "^6.0.1",
-    "sass-embedded": "^1.89.0",
-    "terser": "^5.39.2",
-    "typescript": "^5.8.3",
-    "vite": "^6.3.5",
-    "vite-plugin-dts": "^4.5.3",
-    "vite-plugin-lib-inject-css": "^2.2.2"
+    "terser": "^5.39.2"
   }
 }
