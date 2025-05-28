@@ -1,7 +1,7 @@
 div.color-swatch {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   &__color {
     width: 24px;
@@ -17,11 +17,11 @@ div.color-swatch {
 
   &__shades {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    margin-left: 8px;
     border-radius: 4px;
     overflow: hidden;
-    margin-left: 8px;
 
     div.color-shade {
       width: 20px;
