@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Palette } from '@react/widgets';
+import { Palette, Export } from '@react/widgets';
 import styles from './Floater.module.scss';
+import { Separator } from '../../components';
 
 export const Floater: React.FC = () => {
   const [currentOption, setCurrentOption] = useState<string | null>(null);
@@ -14,6 +15,11 @@ export const Floater: React.FC = () => {
       <Palette 
         isOpened={currentOption === 'palette'}
         onClick={() => handleOptionClick('palette')}
+      />
+      <Separator />
+      <Export
+        isOpened={currentOption === 'export'}
+        onClick={() => handleOptionClick('export')}
       />
     </div>
   );

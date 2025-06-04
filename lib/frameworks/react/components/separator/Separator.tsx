@@ -11,6 +11,7 @@ export const Separator: React.FC<SeparatorProps> = ({
       style={{
         width: '1px',
         height: height ? `${height}px` : 'auto',
+        alignSelf: height ? 'auto' : 'stretch',
         backgroundColor: '#2c2c2c'
       }}
     />

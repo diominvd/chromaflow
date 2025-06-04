@@ -33,7 +33,7 @@ export const Option: React.FC<OptionProps> = ({
       </div>
       {isOpened && (
         <div
-          className='option__content'
+          className={'option__content'}
           id={id}
         >
           {children}
