@@ -1,4 +1,4 @@
-import { ColorPalette } from '@/types';
+import { ColorPalette } from '@/types/types';
 
 export class PaletteStorage {
   private readonly key: string = 'chromaflow'

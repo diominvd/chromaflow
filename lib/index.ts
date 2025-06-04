@@ -1,3 +1,3 @@
-export * from './classes';
+export * from './classes/Palette';
 export * from './frameworks';
-export * from './types';
+export * from './types/types';

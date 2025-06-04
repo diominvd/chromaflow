@@ -1,18 +1,18 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 import { Palette } from '@/classes';
-import { ColorPalette } from '@/types';
+import { ColorPalette } from '@/types/types';
 
-export interface PaletteProviderProps {
+interface PaletteProviderProps {
   colors: ColorPalette;
   children: React.ReactNode;
 }
 
-export interface PaletteContextProps {
+interface PaletteContextProps {
   palette: Palette;
 }
 
-export const PaletteContext = createContext<PaletteContextProps | null>(null);
+const PaletteContext = createContext<PaletteContextProps | null>(null);
 
 export const PaletteProvider = ({
   colors,

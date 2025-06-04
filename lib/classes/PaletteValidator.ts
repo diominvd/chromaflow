@@ -1,4 +1,4 @@
-import { ColorPalette, ColorPaletteElement } from '@/types';
+import { ColorPalette, ColorPaletteElement } from '@/types/types';
 
 export class PaletteValidator {
   static isValidColor(color: string): boolean {

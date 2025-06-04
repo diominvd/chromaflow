@@ -1,0 +1,41 @@
+div.color-swatch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__color {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    transition: all 0.2s ease-out;
+
+    &:hover {
+      opacity: 0.85;
+      cursor: pointer;
+    }
+  }
+
+  &__shades {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+
+    div.color-shade {
+      width: 20px;
+      height: 24px;
+      transition: all 0.2s ease;
+
+      &:hover {
+        width: 64px;
+        cursor: pointer;
+      }
+
+      span.color-shade__label {
+        font-size: 12px;
+      }
+    }
+  }
+}

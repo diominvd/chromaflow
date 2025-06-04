@@ -1,7 +1,7 @@
 import { PaletteStorage } from './PaletteStorage.ts';
 import { PaletteStyleManager } from './PaletteStyleManager.ts';
 import { PaletteValidator } from './PaletteValidator.ts';
-import { ColorPaletteElement, ColorPalette } from '@/types';
+import { ColorPaletteElement, ColorPalette } from '@/types/types';
 import { generateShades } from '@/utils';
 
 export class Palette {
